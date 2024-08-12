@@ -1,15 +1,7 @@
 "use client";
 
-import {
-  Box,
-  Button,
-  Stack,
-  TextField,
-  IconButton,
-  Switch,
-} from "@mui/material";
+import { Box, Button, Stack, TextField, Switch } from "@mui/material";
 import { useState, useRef, useEffect } from "react";
-import { Star, StarBorder } from "@mui/icons-material";
 import "./globals.css";
 
 export default function Home() {
@@ -127,6 +119,7 @@ export default function Home() {
           overflow="auto"
           sx={{
             maxHeight: "100%",
+            padding: "20px",
             "&::-webkit-scrollbar": {
               width: "8px",
             },
@@ -146,13 +139,20 @@ export default function Home() {
               justifyContent={
                 message.role === "assistant" ? "flex-start" : "flex-end"
               }
+              sx={{
+                margin: "10px 0",
+              }}
             >
               <Box
                 bgcolor={message.role === "assistant" ? "#2D2D2D" : "#4A4A4A"}
                 color="#FFFFFF"
                 borderRadius={16}
-                p={3}
+                p={2}
                 maxWidth="75%"
+                sx={{
+                  whiteSpace: "pre-line", // Preserve line breaks
+                  wordWrap: "break-word", // Break long words
+                }}
               >
                 {message.content}
               </Box>
@@ -164,10 +164,14 @@ export default function Home() {
           <TextField
             label="Type your message..."
             fullWidth
+            multiline
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) sendMessage();
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+              }
             }}
             disabled={isLoading}
             sx={{
