@@ -1,3 +1,4 @@
 # AI_ChatBot
 
-![image](https://github.com/user-attachments/assets/7a2bdf31-6f69-428f-aad7-c321ac1a60f4)
+<img width="941" alt="image" src="https://github.com/user-attachments/assets/7fe27139-3be4-46a4-b495-cc927a49362d" />
+
