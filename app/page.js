@@ -10,7 +10,7 @@ export default function Home() {
     {
       role: "assistant",
       content:
-        "Hi! I'm Shabbu your AI assistant. My goal is to help you find and get a CS internship. How can I help you today?",
+        "Hi! I’m Shabbu, your AI assistant. My goal is to help you find and land your dream job. How can I assist you today?",
     },
   ]);
   const [message, setMessage] = useState("");
